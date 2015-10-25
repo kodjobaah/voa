@@ -1,0 +1,32 @@
+@(problemsForm:Form[com.voa.form.Problems])(implicit messages: Messages)
+
+@import helper._
+
+<div class="report-a-problem-content">
+    <h2>Help us improve GOV.UK</h2>
+
+    @helper.form(action = routes.Application.problems) {
+
+        <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+        <input id="url" name="url" type="hidden" value="https://www.gov.uk/get-vehicle-information-from-dvla">
+
+        <input id="source" name="source" type="hidden" value="">
+
+
+        <input id="page_owner" name="page_owner" type="hidden" value="">
+
+
+        <p>Don’t include personal or financial information, eg your National Insurance number or credit card details.</p>
+
+        <label for="what_doing">What you were doing</label>
+        <input id="what_doing" name="what_doing" type="text">
+
+        <label for="what_wrong">What went wrong</label>
+        <input id="what_wrong" name="what_wrong" type="text">
+
+        <div class="button-wrapper">
+            <button name="commit" type="submit" class="button">Send</button>
+        </div>
+    }
+
+</div>

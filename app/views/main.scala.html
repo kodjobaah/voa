@@ -1,0 +1,153 @@
+@(title: String, pageHeader: String, searchForm:Form[com.voa.form.Search],problemForm:Form[com.voa.form.Problems])(content: Html)(implicit messages: Messages)
+
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<html class="lte-ie8" lang="en"><![endif]--><!--[if gt IE 8]><!--><html lang="en">
+<!--<![endif]-->
+
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <title>@title</title>
+
+    <script type="text/javascript">
+
+    (function() {
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        /** @@type {HTMLDocument} */
+        var doc = document;
+        /** @@type {string} */
+        var sel = "appendChild";
+        /** @@type {Element} */
+        var matches = doc.createElement("style");
+            matches[sel](doc.createTextNode("@@-ms-viewport{width:auto!important}"));
+        doc.getElementsByTagName("head")[0][sel](matches);
+        }
+    })();
+    </script>
+
+    <!--[if gt IE 8]><!--><link href="https://assets.digital.cabinet-office.gov.uk/static/govuk-template-b5d680ad6607cf5441a22a3a533e92b40b15b8f6b9708dbdfc5fc6da71949113.css" media="screen" rel="stylesheet" type="text/css">
+    <!--<![endif]-->
+    <!--[if IE 6]><link href="https://assets.digital.cabinet-office.gov.uk/static/govuk-template-ie6-8ce52e6c57ef52b485fe341b80212e02a5fe79b7b83b7fd19750bcc9b53b5f1f.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 7]><link href="https://assets.digital.cabinet-office.gov.uk/static/govuk-template-ie7-219c9b201ceef33894394de26637d9339c6caf2e20da4144d28024b75a13958f.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 8]><link href="https://assets.digital.cabinet-office.gov.uk/static/govuk-template-ie8-09843edb0e6dc505c97e57a4b7018ed42fd4fef0ce0974e26e9f1bb28fb781d6.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+
+    <link href="https://assets.digital.cabinet-office.gov.uk/static/govuk-template-print-e4515cc0129a011e04d70411d732b064ae130c10526c16fdab1159fb8bf3db0e.css" media="print" rel="stylesheet" type="text/css">
+
+    <!--[if IE 8]>
+    <script type="text/javascript">
+      (function(){if(window.opera){return;}
+       setTimeout(function(){var a=document,g,b={families:(g=
+       ["nta"]),urls:["https://assets.digital.cabinet-office.gov.uk/static/fonts-ie8-e119686ad063d9cf6a6ecde56ec4760b8084d32b80a6a0e0a790d3459316690c.css"]},
+       c="https://assets.digital.cabinet-office.gov.uk/static/vendor/goog/webfont-debug-733b09043a9050e3ccd9ad049535413e25ae4405dc9ec85f2c575b0ad3b19a74.js",d="script",
+       e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
+       ={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h=h-1;a.documentElement
+       .className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
+      })()
+    </script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+    <link href="https://assets.digital.cabinet-office.gov.uk/static/fonts-5ff8c53913434afd0072a480d7cfca67cace4c8d03f6ef96b78a4455728ce745.css" media="all" rel="stylesheet" type="text/css">
+    <!--<![endif]-->
+
+
+    <!--[if lt IE 9]>
+    <script src="https://assets.digital.cabinet-office.gov.uk/static/ie-105665c0105db53b92e57fabb90b0ef42b9034a0b8341beb3a20621a7f7eb4d3.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="https://assets.digital.cabinet-office.gov.uk/static/favicon-8d811b8c3badbc0b0e2f6e25d3660a96cc0cca7993e6f32e98785f205fc40907.ico" type="image/x-icon">
+
+    <!-- Size for iPad and iPad mini (high resolution) -->
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://assets.digital.cabinet-office.gov.uk/static/apple-touch-icon-152x152-55dd2af7a53abb7dd14ba6a3c6c3fc786c57a074ba809f6dd767e186955a87e1.png">
+    <!-- Size for iPhone and iPod touch (high resolution) -->
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://assets.digital.cabinet-office.gov.uk/static/apple-touch-icon-120x120-92580784afc35143f96b8cf5614e221427fdea444aeb13d912c879e884af7336.png">
+    <!-- Size for iPad 2 and iPad mini (standard resolution) -->
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://assets.digital.cabinet-office.gov.uk/static/apple-touch-icon-76x76-9b193f39cde53b92ba555efed856bcd103d6d1dc650919eb9f29dbe5f442cfb0.png">
+    <!-- Default non-defined size, also used for Android 2.1+ devices -->
+    <link rel="apple-touch-icon-precomposed" href="https://assets.digital.cabinet-office.gov.uk/static/apple-touch-icon-60x60-0af0a7cf886701647210f13b661e607b7223bc3221b6d275718a89af79b3e7b9.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="https://assets.digital.cabinet-office.gov.uk/static/opengraph-image-a1f7d89ffd0782738b1aeb0da37842d8bd0addbd724b8e58c3edbc7287cc11de.png">
+
+    <!--[if gt IE 8]><!--><link rel="stylesheet" media="screen" href="https://assets.digital.cabinet-office.gov.uk/static/static-7c456bd52e69581ab8fb92389653f4fe99e49871410ae70fb4b2534e8792efc8.css">
+    <!--<![endif]-->
+    <!--[if IE 6]><link rel="stylesheet" media="screen" href="https://assets.digital.cabinet-office.gov.uk/static/static-ie6-0276fd2b730c2ede6acde58601a2bdb4e771a1167af01a3dc8c06610a0dc93ab.css" /><script>var ieVersion = 6;</script><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" media="screen" href="https://assets.digital.cabinet-office.gov.uk/static/static-ie7-c2934d948fcb125d89672440d42114e08469d86e8da4ab6b226ae159034d664c.css" /><script>var ieVersion = 7;</script><![endif]-->
+    <!--[if IE 8]><link rel="stylesheet" media="screen" href="https://assets.digital.cabinet-office.gov.uk/static/static-ie8-aec185359a3888dba03fecf6d046202220b45efd2beb68bace7d982f12300a7c.css" /><script>var ieVersion = 8;</script><![endif]-->
+
+    <link rel="stylesheet" media="print" href="https://assets.digital.cabinet-office.gov.uk/static/static-print-af05cef4adab6e6cf6cf9417b3511cb6334828dcbbcb37c4ffd5a658433c98b5.css">
+
+
+    <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
+    <!--[if gt IE 8]><!--><link rel="stylesheet" media="screen" href="https://assets.digital.cabinet-office.gov.uk/frontend/application-9d7dc93390d78af2c6e8db26e22647164bc84835589c45f9c7fb6dfd1b520638.css">
+    <!--<![endif]--><link rel="alternate" type="application/json" href="/api/get-vehicle-information-from-dvla.json">
+    <meta name="description" content="Check a vehicle's details, tax and SORN status and expiry dates on the Driver Vehicle and Licensing Agency (DVLA) database - online and telephone enquiries">
+    <!--[if IE 6]><link rel="stylesheet" media="screen" href="https://assets.digital.cabinet-office.gov.uk/frontend/application-ie6-aefb2730348a9d65be58e1b30bbd217d687a16787bb948eb949ce9459c1a2ae5.css" /><![endif]--><!--[if IE 7]><link rel="stylesheet" media="screen" href="https://assets.digital.cabinet-office.gov.uk/frontend/application-ie7-9b4e722bb430d78857cb98b9d4eb146f4fca677a0266f7b5fe205f28e1b7b667.css" /><![endif]--><!--[if IE 8]><link rel="stylesheet" media="screen" href="https://assets.digital.cabinet-office.gov.uk/frontend/application-ie8-beff43d4ded71d48c42894ada9828459ab7b24c79bf61d118eded8e8428b17a0.css" /><![endif]--><meta name="govuk:section" content="driving and transport">
+    <meta name="govuk:need-ids" content="100260">
+    <meta name="govuk:format" content="transaction">
+    <meta name="govuk:rendering-application" content="frontend">
+    </head>
+    <body>
+
+    <body class="mainstream">
+    <script type="text/javascript">document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    <div id="skiplink-container">
+        <div>
+            <a href="#content" class="skiplink">Skip to main content</a>
+        </div>
+    </div>
+    @globalCookie()
+    @header(searchForm)
+
+    <div id="user-satisfaction-survey-container" data-survey-url="https://www.surveymonkey.com/s/6HZFSVC"></div>
+    @globalHeaderBar()
+    <div id="global-breadcrumb" class="header-context">
+        @vinfoBreadcrumbs()
+    </div>
+
+    <div id="wrapper" class="transaction service">
+
+        <div class="grid-row">
+            <main id="content" role="main" class="">
+                <header class="page-header">
+                    <div>
+                        <h1>
+                            @pageHeader
+                        </h1>
+                    </div>
+                </header>
+
+                <div class="article-container group">
+                    @vinfoContent()
+                    <div class="meta-data group">
+                        <p class="modified-date">Last updated: 26 June 2015</p>
+                    </div>
+
+                </div>
+            </main>
+
+            <!-- related -->
+            <div class="related-container">
+                @vinfoRelated()
+            </div>
+            <!-- end related -->
+
+        </div>
+
+        <div class="report-a-problem-container">
+            <div class="report-a-problem-inner">
+                @vinfoProblems(problemForm)
+            </div>
+        </div>
+    </div>
+
+    <div id="global-app-error" class="app-error hidden"></div>
+    @footer()
+    <script src="https://assets.digital.cabinet-office.gov.uk/static/govuk-template-c4f303154d2a238bdda4d5cf1ebd8d4487822e4cbc3e4c83e743da869443ce72.js" type="text/javascript"></script>
+    <script src="https://assets.digital.cabinet-office.gov.uk/static/libs/jquery/jquery-1.11.3-92dc85369a3bf658db02f5a3f52231ccf961a37627ae12486f4ce34eba12a3dd.js"></script>
+    <script src="https://assets.digital.cabinet-office.gov.uk/static/application-5594da0d5c74db87f6fe1adb518a5c7f0d2ce2ea5e3c5b1e8dafbb629bc7abd3.js"></script>
+    <script src="https://assets.digital.cabinet-office.gov.uk/frontend/frontend-10f4f61a27c820ff4b83b9a886caa1ee9ba490f267c271c8cfc6ddab7bcdbb15.js"></script>
+    </body>
+</html>
+

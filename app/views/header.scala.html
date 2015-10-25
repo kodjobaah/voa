@@ -1,0 +1,23 @@
+@(searchForm:Form[com.voa.form.Search])(implicit messages: Messages)
+
+@import helper._
+
+<header role="banner" id="global-header" class="">
+    <div class="header-wrapper">
+        <div class="header-global">
+            <div class="header-logo">
+                <a href="https://www.gov.uk" title="Go to the GOV.UK homepage" id="logo" class="content">
+                    <img src="https://assets.digital.cabinet-office.gov.uk/static/gov.uk_logotype_crown_invert_trans-78910ec0b2d46b9f4933556ba3d6863ca9bbcbefa8a4c811dce36f7026d04de8.png" width="35" height="31" alt=""> GOV.UK
+                </a>
+            </div>
+            <a href="#search" class="search-toggle js-header-toggle">Search</a>
+            @implicitField = @{FieldConstructor(templates.searchTemplate.f) }
+            @helper.form(action = routes.Application.search, 'id -> "search", 'class ->  "site-search" ) {
+                @helper.inputText(searchForm("q"), 'type -> "search", 'id -> "site-search-text", 'title -> "search", 'class -> "js-search-focus")
+            }
+
+        </div>
+
+    </div>
+</header>
+<!--end header-->
